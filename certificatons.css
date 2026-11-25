@@ -1,0 +1,848 @@
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #00004D;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.page-background {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #00004D, #11111C);
+}
+
+main {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================
+   CÍRCULOS ANIMADOS
+========================================= */
+
+.falling-circles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.circle {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background: rgba(154, 156, 203, 0.13);
+    animation: falling 18s linear infinite;
+}
+
+.circle-1 {
+    width: 35px;
+    height: 35px;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    width: 20px;
+    height: 20px;
+    left: 28%;
+    animation-delay: 4s;
+}
+
+.circle-3 {
+    width: 45px;
+    height: 45px;
+    left: 48%;
+    animation-delay: 7s;
+}
+
+.circle-4 {
+    width: 25px;
+    height: 25px;
+    left: 67%;
+    animation-delay: 2s;
+}
+
+.circle-5 {
+    width: 40px;
+    height: 40px;
+    left: 82%;
+    animation-delay: 9s;
+}
+
+.circle-6 {
+    width: 18px;
+    height: 18px;
+    left: 93%;
+    animation-delay: 5s;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(120vh);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 85px;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 24, 0.88);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #c7c7dc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #75B9B0;
+}
+
+
+/* =========================================
+   ENCABEZADOS DE SECCIÓN
+========================================= */
+
+.section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 65px;
+}
+
+.section-eyebrow {
+    display: block;
+    color: #75B9B0;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+}
+
+.section-heading h1,
+.section-heading h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.section-heading p {
+    color: #c4c5d8;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   SECCIÓN 1: CERTIFICACIONES
+========================================= */
+
+.certifications-section {
+    padding: 110px 12% 120px;
+    position: relative;
+}
+
+.certification-list {
+    max-width: 1050px;
+    margin: auto;
+}
+
+.certification-item {
+    min-height: 190px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding: 35px 20px;
+    position: relative;
+}
+
+/* Separador con degradado azul */
+
+.certification-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #3d74c5,
+        #75B9B0,
+        #3d74c5,
+        transparent
+    );
+}
+
+.certification-description {
+    position: relative;
+}
+
+.certification-number {
+    display: block;
+    color: #75B9B0;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.certification-description h2 {
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.certification-description p {
+    color: #c4c5d8;
+    font-size: 14px;
+    line-height: 1.9;
+    max-width: 550px;
+}
+
+.certification-logo {
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certification-logo img {
+    max-width: 80%;
+    max-height: 110px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.certification-logo img:hover {
+    transform: scale(1.06);
+}
+
+
+/* =========================================
+   SECCIÓN 2: CURSOS
+========================================= */
+
+.courses-section {
+    padding: 110px 12% 130px;
+    position: relative;
+    background: rgba(0, 0, 20, 0.17);
+}
+
+.courses-list {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+
+/* Tarjeta general */
+
+.course-card {
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(154, 156, 203, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.course-card:hover {
+    border-color: rgba(117, 185, 176, 0.65);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Cabecera de cada tarjeta */
+
+.course-header {
+    width: 100%;
+    min-height: 125px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 18px 25px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    text-align: left;
+    font-family: Georgia, serif;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Degradado al pasar el cursor */
+
+.expandable .course-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        100deg,
+        rgba(0, 0, 100, 0.08),
+        rgba(42, 93, 170, 0.32),
+        rgba(117, 185, 176, 0.22)
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 0;
+}
+
+.expandable .course-header:hover::before,
+.expandable .course-header:focus-visible::before {
+    opacity: 1;
+}
+
+.course-header > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Fotografía izquierda */
+
+.course-photo {
+    width: 115px;
+    height: 85px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.course-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.course-card:hover .course-photo img {
+    transform: scale(1.06);
+}
+
+
+/* Nombre del curso */
+
+.course-title {
+    flex: 1;
+}
+
+.course-title span {
+    display: block;
+    font-size: 10px;
+    color: #75B9B0;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.course-title h3 {
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+
+/* Acción mostrar más */
+
+.course-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #b9c9e9;
+    font-size: 12px;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.expandable .course-header:hover .course-action {
+    color: #ffffff;
+}
+
+.course-arrow {
+    font-size: 22px;
+    transition: transform 0.3s ease;
+}
+
+.expandable.open .course-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* Contenido desplegable */
+
+.course-details {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s ease;
+}
+
+.course-details-content {
+    min-height: 0;
+    overflow: hidden;
+    padding: 0 45px;
+    opacity: 0;
+    transition:
+        opacity 0.3s ease,
+        padding 0.4s ease;
+}
+
+.expandable.open .course-details {
+    grid-template-rows: 1fr;
+}
+
+.expandable.open .course-details-content {
+    padding: 10px 45px 35px;
+    opacity: 1;
+}
+
+.course-details-content p {
+    color: #c4c5d8;
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 25px;
+}
+
+.course-details-content img {
+    display: block;
+    width: min(100%, 520px);
+    max-height: 310px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Quinta tarjeta: no tiene efecto desplegable */
+
+.final-course {
+    cursor: default;
+}
+
+.final-course:hover {
+    border-color: rgba(154, 156, 203, 0.35);
+    box-shadow: none;
+    transform: none;
+}
+
+.final-course .course-header {
+    cursor: default;
+}
+
+.final-course .course-photo {
+    width: 115px;
+    height: 85px;
+}
+
+.final-course .course-header:hover {
+    background: transparent;
+}
+
+
+/* =========================================
+   SECCIÓN 3: DIPLOMAS
+========================================= */
+
+.diplomas-section {
+    padding: 120px 10% 140px;
+    position: relative;
+}
+
+.diploma-carousel {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 65px minmax(0, 1fr) 65px;
+    align-items: center;
+    gap: 30px;
+}
+
+
+/* Botones laterales */
+
+.carousel-button {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid rgba(117, 185, 176, 0.55);
+    background: rgba(0, 0, 35, 0.5);
+    color: #ffffff;
+    font-size: 22px;
+    cursor: pointer;
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background: linear-gradient(135deg, #315b9b, #398d91);
+    border-color: #75B9B0;
+    transform: scale(1.08);
+}
+
+
+/* Imagen del diploma */
+
+.diploma-content {
+    min-width: 0;
+    text-align: center;
+}
+
+.diploma-image-container {
+    width: 100%;
+    height: 440px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(154, 156, 203, 0.28);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.diploma-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+}
+
+
+/* Información del diploma */
+
+.diploma-information {
+    padding-top: 28px;
+}
+
+.diploma-information span {
+    display: block;
+    color: #75B9B0;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 13px;
+}
+
+.diploma-information h3 {
+    font-size: 23px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.diploma-information p {
+    color: #bfc1d7;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    position: relative;
+    z-index: 2;
+    padding: 65px 9% 25px;
+    background: linear-gradient(180deg, #080820, #000018);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    max-width: 1150px;
+    margin: auto;
+    padding-bottom: 45px;
+}
+
+.footer-brand h2 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.footer-brand p {
+    color: #bfc1d7;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.footer-brand span {
+    color: #75B9B0;
+    font-size: 13px;
+}
+
+.footer-navigation,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.footer-navigation h3,
+.footer-contact h3 {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.footer-navigation a,
+.footer-contact a {
+    color: #bfc1d7;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-navigation a:hover,
+.footer-contact a:hover {
+    color: #75B9B0;
+}
+
+.footer-bottom {
+    max-width: 1150px;
+    margin: auto;
+    padding-top: 22px;
+    border-top: 1px solid rgba(154, 156, 203, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p,
+.footer-bottom a {
+    color: #8f91ad;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #75B9B0;
+}
+
+
+/* =========================================
+   RESPONSIVE: TABLETS
+========================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .certifications-section,
+    .courses-section {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .certification-item {
+        gap: 30px;
+    }
+
+    .diploma-carousel {
+        gap: 15px;
+        grid-template-columns: 50px minmax(0, 1fr) 50px;
+    }
+
+    .carousel-button {
+        width: 45px;
+        height: 45px;
+    }
+
+    .diploma-image-container {
+        height: 350px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE: MÓVILES
+========================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px 18px;
+    }
+
+    .certifications-section,
+    .courses-section,
+    .diplomas-section {
+        padding: 75px 6%;
+    }
+
+    .section-heading {
+        margin-bottom: 45px;
+    }
+
+    .section-heading h1,
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .certification-item {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 30px 5px;
+    }
+
+    .certification-logo {
+        height: 90px;
+        justify-content: flex-start;
+    }
+
+    .certification-logo img {
+        max-height: 80px;
+        max-width: 65%;
+    }
+
+    .course-header {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .course-photo {
+        width: 85px;
+        height: 75px;
+    }
+
+    .course-title h3 {
+        font-size: 15px;
+    }
+
+    .course-title span {
+        font-size: 9px;
+    }
+
+    .course-action {
+        gap: 5px;
+        font-size: 10px;
+    }
+
+    .course-arrow {
+        font-size: 18px;
+    }
+
+    .course-details-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .expandable.open .course-details-content {
+        padding: 10px 20px 25px;
+    }
+
+    .diploma-carousel {
+        grid-template-columns: 35px minmax(0, 1fr) 35px;
+        gap: 8px;
+    }
+
+    .carousel-button {
+        width: 35px;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    .diploma-image-container {
+        height: 240px;
+        padding: 10px;
+    }
+
+    .diploma-information h3 {
+        font-size: 18px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}

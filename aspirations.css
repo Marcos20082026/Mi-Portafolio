@@ -1,0 +1,1002 @@
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #00004D, #11111C);
+    color: #F2F2F7;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   CÍRCULOS ANIMADOS
+========================================= */
+
+.circles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.circles span {
+    position: absolute;
+    bottom: -120px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgba(117, 185, 176, 0.35);
+    background: rgba(117, 185, 176, 0.08);
+    border-radius: 50%;
+    animation: floating-circles 18s linear infinite;
+}
+
+.circles span:nth-child(1) {
+    left: 8%;
+    width: 35px;
+    height: 35px;
+    animation-duration: 17s;
+}
+
+.circles span:nth-child(2) {
+    left: 25%;
+    width: 18px;
+    height: 18px;
+    animation-duration: 22s;
+    animation-delay: 3s;
+}
+
+.circles span:nth-child(3) {
+    left: 45%;
+    width: 45px;
+    height: 45px;
+    animation-duration: 20s;
+    animation-delay: 6s;
+}
+
+.circles span:nth-child(4) {
+    left: 65%;
+    width: 22px;
+    height: 22px;
+    animation-duration: 16s;
+    animation-delay: 2s;
+}
+
+.circles span:nth-child(5) {
+    left: 82%;
+    width: 38px;
+    height: 38px;
+    animation-duration: 24s;
+    animation-delay: 5s;
+}
+
+.circles span:nth-child(6) {
+    left: 95%;
+    width: 16px;
+    height: 16px;
+    animation-duration: 19s;
+    animation-delay: 8s;
+}
+
+@keyframes floating-circles {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-115vh) scale(1.4);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    min-height: 85px;
+    padding: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000018;
+    border-bottom: 1px solid rgba(117, 185, 176, 0.2);
+}
+
+.logo {
+    color: #75B9B0;
+    font-size: 1.55rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    position: relative;
+    color: #D6D6E2;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #75B9B0, #9A9CCB);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #75B9B0;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   CONTENIDO PRINCIPAL
+========================================= */
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+.aspiration-section,
+.aspirations-intro,
+.thank-you-section {
+    width: min(1100px, 84%);
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   INTRODUCCIÓN
+========================================= */
+
+.aspirations-intro {
+    min-height: 520px;
+    padding: 100px 0 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-label {
+    color: #75B9B0;
+    font-family: Arial, sans-serif;
+    font-size: 0.76rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.aspirations-intro h1 {
+    max-width: 850px;
+    font-size: clamp(2.7rem, 5vw, 4.5rem);
+    font-weight: normal;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.aspirations-intro h1 span {
+    display: block;
+    color: #75B9B0;
+}
+
+.intro-description {
+    max-width: 700px;
+    color: #C5C7D6;
+    font-family: Arial, sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.9;
+}
+
+.intro-button {
+    margin-top: 35px;
+    padding: 13px 24px;
+    border: 1px solid rgba(117, 185, 176, 0.5);
+    border-radius: 30px;
+    color: #D9E5E4;
+    font-family: Arial, sans-serif;
+    font-size: 0.88rem;
+    transition: 0.3s ease;
+}
+
+.intro-button span {
+    margin-left: 10px;
+    color: #75B9B0;
+}
+
+.intro-button:hover {
+    background: rgba(117, 185, 176, 0.13);
+    border-color: #75B9B0;
+    transform: translateY(-4px);
+}
+
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+.aspiration-section {
+    padding: 85px 0;
+    border-top: 1px solid rgba(154, 156, 203, 0.2);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    color: #F2F2F7;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: normal;
+}
+
+.section-description {
+    max-width: 390px;
+    color: #B9BDCE;
+    font-family: Arial, sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    text-align: right;
+}
+
+
+/* =========================================
+   UNIVERSIDAD
+========================================= */
+
+.university-header {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    align-items: center;
+    gap: 55px;
+    padding: 45px;
+    background: rgba(8, 12, 43, 0.65);
+    border: 1px solid rgba(154, 156, 203, 0.22);
+    border-radius: 18px;
+    transition: border-color 0.35s ease;
+}
+
+.university-header:hover {
+    border-color: rgba(117, 185, 176, 0.65);
+}
+
+.university-tag {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #75B9B0;
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.university-information h3 {
+    max-width: 600px;
+    color: #F2F2F7;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: normal;
+    line-height: 1.25;
+}
+
+.degree-name {
+    margin-top: 17px;
+    color: #9A9CCB;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.university-line {
+    width: 75px;
+    height: 2px;
+    margin: 25px 0 18px;
+    background: linear-gradient(90deg, #75B9B0, #9A9CCB);
+}
+
+.university-caption {
+    color: #AEB4C9;
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.university-logo-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.university-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.university-description {
+    margin-top: 28px;
+    padding: 30px 35px;
+    border-left: 2px solid #75B9B0;
+    background: rgba(117, 185, 176, 0.055);
+}
+
+.university-description p {
+    color: #C5C7D6;
+    font-family: Arial, sans-serif;
+    font-size: 0.94rem;
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   PROYECCIÓN ACADÉMICA
+========================================= */
+
+.future-academic {
+    margin-top: 95px;
+}
+
+.future-heading {
+    margin-bottom: 30px;
+}
+
+.future-heading h3 {
+    color: #F2F2F7;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: normal;
+}
+
+.future-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.future-image-container {
+    position: relative;
+    height: 370px;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid rgba(117, 185, 176, 0.3);
+}
+
+.future-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.future-image-container:hover .future-image {
+    transform: scale(1.06);
+}
+
+.image-caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 25px 18px 17px;
+    background: linear-gradient(transparent, rgba(0, 0, 24, 0.95));
+    color: #F2F2F7;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.future-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.future-text p {
+    color: #C5C7D6;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.95;
+}
+
+
+/* =========================================
+   APRENDIZAJE PERSONAL
+========================================= */
+
+.personal-learning {
+    border-top: 1px solid rgba(154, 156, 203, 0.2);
+}
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    align-items: stretch;
+}
+
+.learning-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: rgba(8, 12, 43, 0.72);
+    border: 1px solid rgba(154, 156, 203, 0.2);
+    border-radius: 16px;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.learning-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(117, 185, 176, 0.7);
+    background: rgba(20, 31, 66, 0.9);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.learning-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: rgba(117, 185, 176, 0.08);
+}
+
+.learning-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.learning-card:hover .learning-image img {
+    transform: scale(1.06);
+}
+
+.image-number {
+    position: absolute;
+    top: 16px;
+    right: 17px;
+    padding: 8px 12px;
+    color: #F2F2F7;
+    background: rgba(0, 0, 24, 0.75);
+    border: 1px solid rgba(117, 185, 176, 0.4);
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 0.72rem;
+}
+
+.learning-content {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.learning-tag {
+    margin-bottom: 14px;
+    color: #75B9B0;
+    font-family: Arial, sans-serif;
+    font-size: 0.68rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.learning-content h3 {
+    margin-bottom: 18px;
+    color: #F2F2F7;
+    font-size: 1.55rem;
+    font-weight: normal;
+}
+
+.learning-content > p {
+    color: #BEC3D2;
+    font-family: Arial, sans-serif;
+    font-size: 0.87rem;
+    line-height: 1.85;
+}
+
+
+/* =========================================
+   TRADUCCIONES DE IDIOMAS
+========================================= */
+
+.translation-divider {
+    width: 100%;
+    height: 1px;
+    margin: 25px 0 20px;
+    background: linear-gradient(
+        90deg,
+        rgba(117, 185, 176, 0.7),
+        rgba(154, 156, 203, 0.1)
+    );
+}
+
+.translation-label {
+    margin-bottom: 12px;
+    color: #9A9CCB;
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.learning-content .translated-text {
+    color: #D0D4E0;
+    font-size: 0.85rem;
+    font-style: italic;
+    line-height: 1.85;
+}
+
+
+/* =========================================
+   TARJETA DE IMPACTO
+========================================= */
+
+.impact-card {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    align-items: stretch;
+}
+
+.impact-card .learning-image {
+    height: 100%;
+    min-height: 330px;
+}
+
+.impact-card .learning-content {
+    justify-content: center;
+    padding: 40px;
+}
+
+.impact-card .learning-content h3 {
+    font-size: 2rem;
+}
+
+.impact-card .learning-content > p {
+    max-width: 570px;
+    font-size: 0.92rem;
+    line-height: 1.95;
+}
+
+
+/* =========================================
+   CIERRE: GRACIAS
+========================================= */
+
+.thank-you-section {
+    position: relative;
+    min-height: 460px;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    border-top: 1px solid rgba(154, 156, 203, 0.2);
+}
+
+.thank-you-decoration {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(117, 185, 176, 0.1);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 35px rgba(117, 185, 176, 0.025),
+        0 0 0 70px rgba(117, 185, 176, 0.015);
+    pointer-events: none;
+}
+
+.thank-you-section .section-label {
+    position: relative;
+    z-index: 1;
+}
+
+.thank-you-section h2 {
+    position: relative;
+    z-index: 1;
+    margin: 10px 0 15px;
+    color: #75B9B0;
+    font-size: clamp(4rem, 9vw, 7rem);
+    font-weight: normal;
+}
+
+.thank-you-line {
+    position: relative;
+    z-index: 1;
+    width: 80px;
+    height: 2px;
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, #75B9B0, #9A9CCB);
+}
+
+.thank-you-message {
+    position: relative;
+    z-index: 1;
+    max-width: 550px;
+    color: #C5C7D6;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.signature {
+    position: relative;
+    z-index: 1;
+    margin-top: 28px;
+    color: #9A9CCB;
+    font-size: 1.15rem;
+    font-style: italic;
+}
+
+
+/* =========================================
+   ANIMACIÓN DE APARICIÓN
+========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    position: relative;
+    z-index: 2;
+    padding: 60px 8% 20px;
+    background: #000018;
+    border-top: 1px solid rgba(117, 185, 176, 0.2);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding-bottom: 45px;
+}
+
+.footer-brand h2 {
+    margin-bottom: 14px;
+    color: #75B9B0;
+    font-size: 1.6rem;
+}
+
+.footer-brand p,
+.footer-brand span {
+    display: block;
+    color: #AEB4C9;
+    font-family: Arial, sans-serif;
+    font-size: 0.86rem;
+    line-height: 1.8;
+}
+
+.footer-brand span {
+    margin-top: 10px;
+    color: #75B9B0;
+}
+
+.footer-navigation,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.footer-navigation h3,
+.footer-contact h3 {
+    margin-bottom: 7px;
+    color: #F2F2F7;
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+
+.footer-navigation a,
+.footer-contact a {
+    width: fit-content;
+    color: #AEB4C9;
+    font-family: Arial, sans-serif;
+    font-size: 0.84rem;
+    transition: color 0.3s ease;
+}
+
+.footer-navigation a:hover,
+.footer-contact a:hover {
+    color: #75B9B0;
+}
+
+.footer-bottom {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(154, 156, 203, 0.17);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #777F98;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+
+    .navbar {
+        padding: 20px 5%;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .section-description {
+        max-width: 600px;
+        text-align: left;
+    }
+
+    .university-header {
+        grid-template-columns: 1fr 200px;
+        gap: 30px;
+        padding: 35px;
+    }
+
+    .future-content {
+        grid-template-columns: 250px 1fr;
+        gap: 30px;
+    }
+
+    .learning-grid {
+        gap: 18px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    .logo {
+        font-size: 1.35rem;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+
+    .aspiration-section,
+    .aspirations-intro,
+    .thank-you-section {
+        width: 88%;
+    }
+
+    .aspirations-intro {
+        min-height: auto;
+        padding: 85px 0;
+    }
+
+    .aspirations-intro h1 {
+        font-size: 2.6rem;
+    }
+
+    .intro-description {
+        font-size: 0.9rem;
+    }
+
+    .aspiration-section {
+        padding: 65px 0;
+    }
+
+    .university-header {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 27px;
+    }
+
+    .university-information h3 {
+        font-size: 2rem;
+    }
+
+    .university-logo-container {
+        width: 180px;
+        margin: 0 auto;
+    }
+
+    .university-description {
+        padding: 25px 20px;
+    }
+
+    .future-academic {
+        margin-top: 70px;
+    }
+
+    .future-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .future-image-container {
+        height: 300px;
+    }
+
+    .future-text p {
+        font-size: 0.9rem;
+    }
+
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-image {
+        height: 210px;
+    }
+
+    .learning-content {
+        padding: 24px;
+    }
+
+    .impact-card {
+        grid-column: auto;
+        display: flex;
+    }
+
+    .impact-card .learning-image {
+        height: 220px;
+        min-height: auto;
+    }
+
+    .impact-card .learning-content {
+        padding: 25px;
+    }
+
+    .impact-card .learning-content h3 {
+        font-size: 1.55rem;
+    }
+
+    .thank-you-section {
+        min-height: 390px;
+        padding: 75px 0;
+    }
+
+    .thank-you-decoration {
+        width: 230px;
+        height: 230px;
+    }
+
+    .footer {
+        padding: 45px 7% 20px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+}
+
+
+/* =========================================
+   ACCESIBILIDAD
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+}
